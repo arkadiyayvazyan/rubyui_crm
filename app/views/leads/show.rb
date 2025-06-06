@@ -2,6 +2,8 @@
 
 class Views::Leads::Show < Views::Base
 
+  def page_title = "Lead #{@lead.id}"
+
   def initialize(lead:)
     @lead = lead
   end

@@ -1,4 +1,11 @@
 # frozen_string_literal: true
+require "phlex"
+require "phlex/rails"
+
+module Phlex
+  module Rails
+  end
+end
 
 module Views
 end

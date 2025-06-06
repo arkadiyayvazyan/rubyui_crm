@@ -3,6 +3,8 @@
 class Views::Leads::New < Views::Base
   include Phlex::Rails::Helpers::FormWith
 
+  def page_title = "New Lead"
+
   def initialize(lead:)
     @lead = lead
   end
@@ -11,7 +13,7 @@ class Views::Leads::New < Views::Base
     Dialog(class: "mx-auto") do
 
       DialogTrigger do
-        Button { "Fill out a form!" }
+        Button(class: btn_tw_classes, data: { controller: "animate", action: "mouseover->animate#scale mouseout->animate#unscale" }) { "New Lead" }
       end
 
       DialogContent(size: :lg) do
@@ -23,12 +25,16 @@ class Views::Leads::New < Views::Base
           end
 
           DialogMiddle do
-            render Views::Leads::Form.new(lead: @lead)
+            Components::Leads::Form(lead: @lead)
           end
         end
 
       end # DialogContent
     end # Dialog
   end #view_template
+
+  def btn_tw_classes
+    "bg-gradient-to-r from-blue-500 to-blue-500 hover:from-blue-500 hover:to-purple-600 p-4 text-white transition-colors duration-500 ease-in-out"
+  end
 
 end

@@ -16,7 +16,9 @@ module Components
 
     private
 
+    # @return [Phlex::HTML]
     def check_icon
+      # @sg-ignore
       svg(
         xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
